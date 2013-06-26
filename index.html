@@ -4,13 +4,12 @@ title: My Personal Space - Please move along!
 ---
 
 
-<div class="content">
-  <div class="related">
+<section>
+  <div class="title">
     <ul>
       {% for post in site.posts %}
        <li><span>{{ post.date | date_to_string }}</span> &dash; <a href="{{ post.url }}">{{ post.title }}</a></li>
-       <!--li><span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li-->
       {% endfor %}
     </ul>
   </div>
-</div>
+</section>
