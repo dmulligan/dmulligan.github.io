@@ -4,9 +4,9 @@ layout: layout
 
 <section>
 	<div id="title">
- 		<h1>{{ post.title }}</h1>
- 	 	<span class="credits left"></span>
-  	<span class="credits right">{{ post.date | date: "%B %e, %Y" }}</span>
+		<h1>{{ title }}</h1>
+		<span class="credits left"></span>
+		<span class="credits right">{{ post.date | date: "%B %e, %Y" }}</span>
 	</div>
 	{{ content }}
 </section>

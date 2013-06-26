@@ -3,24 +3,24 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <id>http://dave.mulligan.ie/</id>
- <link href="http://dave.mulligan.ie/atom.xml" rel="self"/>
- <link href="http://dave.mulligan.ie/"/>
- <title>Dave Mulligan</title>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <author>
-   <name>Dave Mulligan</name>
-   <email>dave@mulligan.ie</email>
- </author>
+	<id>http://blog.mulligan.ie/</id>
+	<link href="http://blog.mulligan.ie/atom.xml" rel="self"/>
+	<link href="http://blog.mulligan.ie/"/>
+	<title>dmulligan</title>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<author>
+		<name>dmulligan</name>
+		<email>dave@mulligan.ie</email>
+	</author>
 
- {% for post in site.posts %}
- <entry>
-   <content type="html">{{ post.content | xml_escape }}</content>
-   <title>{{ post.title }}</title>
-   <link href="http://dave.mulligan.ie{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://dave.mulligan.ie{{ post.id }}</id>
- </entry>
- {% endfor %}
- 
+	{% for post in site.posts %}
+	<entry>
+		<content type="html">{{ post.content | xml_escape }}</content>
+		<title>{{ post.title }}</title>
+		<link href="http://blog.mulligan.ie{{ post.url }}"/>
+		<updated>{{ post.date | date_to_xmlschema }}</updated>
+		<id>http://blog.mulligan.ie{{ post.id }}</id>
+	</entry>
+	{% endfor %}
+
 </feed>
