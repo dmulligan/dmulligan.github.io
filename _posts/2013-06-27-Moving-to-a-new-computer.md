@@ -3,12 +3,12 @@ layout: post
 title: Moving to a new computer
 ---
 
-Moving to a new computer can have both its pros and cons. From one side, its a new computer! but it also means you have to move all of you existing data across, that's if you don't want to start afresh. With the advert of the cloud, things have become a lot simpler. Developer's lives also have become simpler when moving code / workspaces if Git is used. Here's a list of notes that I created when moving to a new laptop recently.
+Moving to a new computer can have both its pros and cons. From one side, its (hopefully) a cool new computer but it also means you have to move all of you existing data across, that's if you don't want to start afresh. With the advert of the cloud, things have become a lot simpler. Developer's lives also have become simpler when moving code / workspaces if Git is used. Here's a list of notes that I created when moving to a new laptop recently.
 
 
 Firefox
 -------
-After installing Firefox on your new computer, just copy the following directory from your old comptuer to your new and open Firefox. Ensure if close the browser first!
+After installing Firefox on your new computer, just copy the following directory from your old comptuer to your new and open Firefox. Ensure to close the browser on both computers first!
 
 Windows XP:
 		C:\Documents and Settings\<WINDOWS_USERNAME>\Application Data\Mozilla\
@@ -19,10 +19,10 @@ Windows Vista / 7 / 8:
 or using the following Environment Variable:
 		%APPDATA%\Mozilla
 
-It maybe necessary to open Firefox on your new computer using the -p option. This will display the Firefox profile selector, allowing you to set the default profile to use when Firefox starts.
+It maybe necessary, the first time, to open Firefox on your new computer using the -p option. This will display the Firefox profile selector, allowing you to set the default profile to use when Firefox starts.
 
-1 Press the Windows Key and the letter 'R'  on your keyboard at the same time.
-2 Type 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe -p' and click 'OK'.
+1. Press the Windows Key and the letter 'R'  on your keyboard at the same time.
+2. Type 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe -p' and click 'OK'.
 
 
 
@@ -45,7 +45,7 @@ Once you have copied the directory to the new computer, you can open Skype and l
 
 Putty
 -----
-Export you saved session as follows:
+Export you saved sessions using:
 
 1. Open the Registry Editor by pressing the Windows Key and the letter 'R', type 'regedit' and click 'OK'.
 2. Once the Registry Editor has opened, press Ctrl-F and search for 'SimonTatham'.
@@ -53,16 +53,16 @@ Export you saved session as follows:
 
 Import those saved sessions back into your new computer by:
 
-1. Copy the file to your new computer
+1. Copy the file to your new computer.
 2. Right click on the file and select 'Merge'. 
 
-Now all of your Putty's settings have been added to your new computer's registory.
+Now all of your Putty session settings are on your new computer.
 
 
 
 Fonts
 -----
-I had to Download, extract, select, right click, install each of the following:
+Adding my prefered open source fonts, I had to download, extract, select, right click, install each of the following:
 
 - [Android Droid](https://github.com/android/platform_frameworks_base/tree/master/data/fonts)
 - [Android Roboto](https://github.com/android/platform_frameworks_base/tree/master/data/fonts)
@@ -74,10 +74,16 @@ I had to Download, extract, select, right click, install each of the following:
 
 Command Prompt
 --------------
-I like to change the default font used by Command Prompt to a Droid Monospace font. To do this, I must first setup the font as an option to be selected in the Preferences of Command Prompt. Again, this will require a little messing around inside the Registery Editor.
+I prefer to change the default font used by Command Prompt to a the Droid Monospace font. To do this, I first had to setup the font as an option to be selected in the Preferences of Command Prompt. This requires a little messing around inside the Registery Editor.
 
 1. Open the Registry Editor: Window key + R, type 'regedit' and click 'OK'.
-2. Navigate to 
+2. Navigate to HLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
+3. Add a new String Value with the name set to x '0's and the value of the front name. (x is one more zero than already displayed)
+
+		0	REG_ZS	Lucida Console
+		00	REG_ZS	Consolas
+		000	REG_ZS	Droid Sans Mono
+
 
 
 Sublime Text 2
@@ -98,12 +104,14 @@ Add Explorer Context Menu. If you are missing an Windows Explorer context menu o
 
 
 
-I also had to setup the following tools, but all of their data is stored in the cloud, leaving me the only tasks of download, install and login.
+I also setup the following tools, but all of their data is stored in the cloud, leaving me the only tasks of download, install and login.
+
 - Dropbox
 - Evernote
 - AeroFS
 
 Notes still to complete:
+
 - Git
 - Chrome
 - GitHub
