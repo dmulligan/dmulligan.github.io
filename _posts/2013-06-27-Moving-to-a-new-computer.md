@@ -1,5 +1,7 @@
-Moving to a new computer
-
+---
+layout: post
+title: Moving to a new computer
+---
 
 Firefox: History
 ----------------
