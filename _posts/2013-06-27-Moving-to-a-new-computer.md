@@ -45,7 +45,7 @@ Once you have copied the directory to the new computer, you can open Skype and l
 
 Putty
 -----
-Export you saved sessions using:
+Export your saved sessions using:
 
 1. Open the Registry Editor by pressing the Windows Key and the letter 'R', type 'regedit' and click 'OK'.
 2. Once the Registry Editor has opened, press Ctrl-F and search for 'SimonTatham'.
@@ -78,7 +78,7 @@ I prefer to change the default font used by Command Prompt to a the Droid Monosp
 
 1. Open the Registry Editor: Window key + R, type 'regedit' and click 'OK'.
 2. Navigate to HLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
-3. Add a new String Value with the name set to x '0's and the value of the front name. (x is one more zero than already displayed)
+3. Add a new String Value with the name set to x '0's and the value of the font name. (x is one more zero than already displayed)
 
 		0	REG_ZS	Lucida Console
 		00	REG_ZS	Consolas
@@ -88,11 +88,12 @@ I prefer to change the default font used by Command Prompt to a the Droid Monosp
 
 Sublime Text 2
 --------------
-Add Explorer Context Menu. If you are missing an Windows Explorer context menu option to open files in Sublime Text (or any other editors for that matter), you can add the option using the following:
+Add a Windows Explorer context menu. If you are missing an explorer context menu option to open selected files in Sublime Text (or any other app for that matter), you can add the context menu option using the following:
 
-1 Create a new empty text file with a '.reg' extension. 
-2 Add the below content (you may need to alter the path to the '.exe' file).
-3 Right click on the file in Explorer and select 'Merge'
+1. Create a new text file with a '.reg' extension.
+2. Add the below content (you may need to alter the path to the '.exe' file).
+3. Right click on the file in Explorer and select 'Merge'.
+
 
 		Windows Registry Editor Version 5.00
 
