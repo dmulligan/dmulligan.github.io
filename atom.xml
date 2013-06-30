@@ -6,7 +6,7 @@ layout: nil
 	<id>http://blog.mulligan.ie/</id>
 	<link href="http://blog.mulligan.ie/atom.xml" rel="self"/>
 	<link href="http://blog.mulligan.ie/"/>
-	<title>dmulligan</title>
+	<title>My Digital Gaff</title>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<author>
 		<name>dmulligan</name>

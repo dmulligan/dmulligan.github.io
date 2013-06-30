@@ -3,12 +3,12 @@ layout: post
 title: Moving to a new computer
 ---
 
-Moving to a new computer can have both its pros and cons. From one side, its (hopefully) a cool new computer but it also means you have to move all of you existing data across, that's if you don't want to start afresh. With the advert of the cloud, things have become a lot simpler. Developer's lives also have become simpler when moving code / workspaces if Git is used. Here's a list of notes that I created when moving to a new laptop recently.
+Moving to a new computer can have both its pros and cons. From one side its (hopefully) a new computer, but on the other side it means you have to move all of your existing data across, that's if you don't want to start afresh. With the advent of the cloud, things have become a lot simpler. Developer's lives also have become simpler when moving code / workspaces if Git is used. Here's a list of notes that I took when moving to a new laptop recently.
 
 
 Firefox
 -------
-After installing Firefox on your new computer, just copy the following directory from your old comptuer to your new and open Firefox. Ensure to close the browser on both computers first!
+After installing Firefox on your new computer, just copy the following directory from the old computer to the new and then open Firefox. Ensure to close the browser on both computers first before coping the data!
 
 Windows XP:
 		C:\Documents and Settings\<WINDOWS_USERNAME>\Application Data\Mozilla\
@@ -19,7 +19,7 @@ Windows Vista / 7 / 8:
 or using the following Environment Variable:
 		%APPDATA%\Mozilla
 
-It maybe necessary, the first time, to open Firefox on your new computer using the -p option. This will display the Firefox profile selector, allowing you to set the default profile to use when Firefox starts.
+It maybe necessary the first time you open Firefox on your new computer to use the -p option. This will display the Firefox profile selector, allowing you to set the default profile to use when Firefox starts.
 
 1. Press the Windows Key and the letter 'R'  on your keyboard at the same time.
 2. Type 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe -p' and click 'OK'.
