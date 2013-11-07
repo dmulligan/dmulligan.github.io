@@ -16,8 +16,7 @@ At the moment, I'm using Amazon S3 to store video from my CCTV, but I wanted to 
 
 Once the above is completed, Megatools should now be fully installed. The usage of Megatools is quite simple, you get an array of new execuablites (megadf, megadl, megaget, megals, megamkdir, megamv, megaput, megareg, megarm, megasync) all named similar to their Unix equivalent, but with a prefix of 'mega'. You should quickly guess what each of them does!
 
-Example usage would be:
-
+Example usage:
 	$ megals -u <USERNAME>
  
 	$ megaput -u <USERNAME> <FILENAME>

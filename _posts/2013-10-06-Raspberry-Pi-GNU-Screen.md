@@ -13,7 +13,7 @@ The bar looks something like:
 		
 		
 		
-	[rpi][    0$ bash  1-$ bash  2$ bash  (3*$bash)      ][06/11  7:56PM]
+	[rpi][      0$ bash  1-$ bash  2$ bash  (3*$bash)      ][06/11  7:56PM]
 
 
 The contents of my .screenrc file is:
