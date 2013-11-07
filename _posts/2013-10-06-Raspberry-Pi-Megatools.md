@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Raspberry Pi: Megatools
+title: Raspberry Pi - Megatools
 ---
 
 At the moment, I'm using Amazon S3 to store video from my CCTV, but I wanted to play around with using [Mega.co.nz](http://mega.co.nz) as its free for the first 10 GBs of data. The first step was to get [Megatools](http://megatools.megous.com/) installed and setup on my Pi. This required me to download and build the megatools source code using the following commands:
@@ -14,9 +14,17 @@ At the moment, I'm using Amazon S3 to store video from my CCTV, but I wanted to 
 	$ make
 	$ sudo make install
 
-Once the above is completed, Megatools should now be fully installed.
+Once the above is completed, Megatools should now be fully installed. The usage of Megatools is quite simple, you get an array of new execuablites (megadf, megadl, megaget, megals, megamkdir, megamv, megaput, megareg, megarm, megasync) all named similar to their Unix equivalent, but with a prefix of 'mega'. You should quickly guess what each of them does!
 
-The output of my install was:
+Example usage would be:
+
+	$ megals -u <USERNAME>
+ 
+	$ megaput -u <USERNAME> <FILENAME>
+
+
+
+The output of my build / install process was:
 
 	19:28:40 rpicam:~$ sudo apt-get install gcc build-essential libcurl4-openssl-dev libglib2.0-dev glib-networking
 	Reading package lists... Done

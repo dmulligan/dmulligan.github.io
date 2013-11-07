@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Raspberry Pi: GNU Screen
+title: Raspberry Pi - GNU Screen
 ---
 
 I have a terrible short term memory and easily forget what I was doing just a few minutes, never mind hours ago. What's this post about again..... ah yes screen. I find this application incrediably useful for accessing persistence xterm sessions from different locations: home, work, my tablet / phone etc. It allows me to start long running processes, detach and the process will contuine running while I'm away. It's also useful in that it allows a number of terminals to open using the one SSH connection. I normally have a few terminals open at once across my Raspberry Pi, FreeNAS, CCTV camera etc.

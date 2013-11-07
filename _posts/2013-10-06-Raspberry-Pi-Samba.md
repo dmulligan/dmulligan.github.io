@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Raspberry Pi: Samba Network Share
+title: Raspberry Pi - Samba Network Share
 ---
 
 # Map Windows SMB share on Linux
