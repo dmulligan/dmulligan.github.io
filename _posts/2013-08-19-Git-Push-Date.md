@@ -23,7 +23,6 @@ From digging around, there appears to be two possible solutions:
 
 	- Modify the post-receive hook on your central repository
 
-
 		#!/bin/sh
 		#
 		# This hook adds a note, using a custom ref, to each new commit contained the date that the push to this repository took place.
