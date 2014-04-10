@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Git - Push Date
--- 
+---
 
 On a current project, my team is using a Git repository on top of the client's CVS repository. This allows the team to create feature branches and share code between each other without having to relie on limited functionality of CVS.  Near the end of each sprint, I commit all changes into the client's CVS repository which is auto deployed to the QA environment. By using Git, we can ensure that we still have regular checkins by developers and still control our releases to QA without the code getting auto deployed and possibly breaking that environment. However, I did notice what maybe considered a short coming of Git, depending on your point of view! 
 
