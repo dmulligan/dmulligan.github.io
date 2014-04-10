@@ -55,7 +55,6 @@ NOTE: (pardon the pun) Git ignores upstream notes by default, so developers need
 	# Push all notes to the origin repository
 	git push origin refs/notes/*
 
-
 	# Fetch all notes from the origin repository
 	git config --add remote.origin.fetch "+refs/notes/*:refs/notes/*"
 
@@ -66,17 +65,13 @@ NOTE: (pardon the pun) Git ignores upstream notes by default, so developers need
 	# git config --add notes.displayRef "refs/remote-notes/origin/*"
 
 
-
-
-
-
-
-
+<!--
 2. The Git reflog command
+-->
 
 
+Resources
 
-Resources 
 - http://git-scm.com/2010/08/25/notes.html
 - https://www.kernel.org/pub/software/scm/git/docs/git-notes.html
 - http://stackoverflow.com/a/6799031/318302
