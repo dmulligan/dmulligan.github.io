@@ -17,60 +17,61 @@ From digging around, there appears to be two possible solutions:
 
 1. Attach a note to each Git commit
 
-Git allows notes to be attached to objects, without changing the objects themselves. Notes can be then displayed when using the Git log command. This feature allows for the creation of a Git hook that would add a note to each commit to identify when the push took place. Since hooks are specific to each repository, you could make it so that the note clearly identify which repository the push date is referring to. Not every Git repository would require this hook, maybe just your central one.
+	Git allows notes to be attached to objects, without changing the objects themselves. Notes can be then displayed when using the Git log command. This feature allows for the creation of a Git hook that would add a note to each commit to identify when the push took place. Since hooks are specific to each repository, you could make it so that the note clearly identify which repository the push date is referring to. Not every Git repository would require this hook, maybe just your central one.
 
-Creating the hook
+	Creating the hook
 
-- Modify the post-receive hook on your central repository
-
-
-	#!/bin/sh
-	#
-	# This hook adds a note, using a custom ref, to each new commit contained the date that the push to this repository took place.
-	#
-	# (TODO Create the hook and put it here)
-	#
-	# To enable this hook, make this file executable by "chmod +x post-update".
-	NOTE_REF=GitPushDate
-	REPO=[repository_url]
-	DATE=`date`
-
-	while read oldrev newrev ref
-	do
-		echo "$ref"
-		git notes --ref=$NOTE_REF add $ref -m "Commit $ref pushed on $date"
-	done
-
-	# Used a custom note ref so that it's less likely to be overwritten buy other notes.
-	
-	git log --show-notes=*
-	git notes --ref=GitPushDate remove 4da66f248de917e6d4bd4bd14c63e1e6d041c104 
+	- Modify the post-receive hook on your central repository
 
 
-- Git allows notes to be changed, allowing a user to modify / delete previously created notes containing push dates, be it by accident or otherwise. Your central repository should be setup to refuse any commit that tries to alter a previously saved note with the custom ref of 'GitPushDate'. To do this, you will need to modify the pre-receive hook.
+		#!/bin/sh
+		#
+		# This hook adds a note, using a custom ref, to each new commit contained the date that the push to this repository took place.
+		#
+		# (TODO Create the hook and put it here)
+		#
+		# To enable this hook, make this file executable by "chmod +x post-update".
+		NOTE_REF=GitPushDate
+		REPO=[repository_url]
+		DATE=`date`
+
+		while read oldrev newrev ref
+		do
+			echo "$ref"
+			git notes --ref=$NOTE_REF add $ref -m "Commit $ref pushed on $date"
+		done
+
+		# Used a custom note ref so that it's less likely to be overwritten buy other notes.
+
+		git log --show-notes=*
+		git notes --ref=GitPushDate remove 4da66f248de917e6d4bd4bd14c63e1e6d041c104 
 
 
-NOTE: (pardon the pun) Git ignores upstream notes by default, so developers need to explicitly fetch notes or configure Git to do so by default. However, this information may not be needed by all developers.
+	- Git allows notes to be changed, allowing a user to modify / delete previously created notes containing push dates, be it by accident or otherwise. Your central repository should be setup to refuse any commit that tries to alter a previously saved note with the custom ref of 'GitPushDate'. To do this, you will need to modify the pre-receive hook.
 
-	# Push all notes to the origin repository
-	git push origin refs/notes/*
 
-	# Fetch all notes from the origin repository
-	git config --add remote.origin.fetch "+refs/notes/*:refs/notes/*"
+	NOTE: (pardon the pun) Git ignores upstream notes by default, so developers need to explicitly fetch notes or configure Git to do so by default. However, this information may not be needed by all developers.
 
-	# Output all note types from the origin repository in the log output
-	git config --add notes.displayRef "refs/notes/origin/*"
+		# Push all notes to the origin repository
+		git push origin refs/notes/*
 
-	# git config --add remote.origin.fetch "+refs/notes/*:refs/remote-notes/origin/*"
-	# git config --add notes.displayRef "refs/remote-notes/origin/*"
+		# Fetch all notes from the origin repository
+		git config --add remote.origin.fetch "+refs/notes/*:refs/notes/*"
+
+		# Output all note types from the origin repository in the log output
+		git config --add notes.displayRef "refs/notes/origin/*"
+
+		# git config --add remote.origin.fetch "+refs/notes/*:refs/remote-notes/origin/*"
+		# git config --add notes.displayRef "refs/remote-notes/origin/*"
 
 
 2. The Git reflog command
 
-It appears to be possible to track a push date on the centeral repository using [reflog](http://stackoverflow.com/a/12704702/318302), I didn't get to try this out, but its soemthing that I would like to follow up on.
+	Using git reflog, on the central repository, it appears to be possible to track the dates that changes took place. From the instructions, it appears that you need to start with a bare repository which isn't ideal. I haven't tried [this](http://stackoverflow.com/a/12704702/318302) out just yet, but it is something I plan to follow up with the next time I start off a new project.
 
 Resources
 
 - http://git-scm.com/2010/08/25/notes.html
 - https://www.kernel.org/pub/software/scm/git/docs/git-notes.html
 - http://stackoverflow.com/a/6799031/318302
+- http://stackoverflow.com/a/12704702/318302
