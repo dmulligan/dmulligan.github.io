@@ -5,11 +5,11 @@ title: Git - Push Date
 
 On a current project, my team is using a Git repository on top of the client's CVS repository. This allows the team to create feature branches and share code between each other without having to relie on limited functionality of CVS.  Near the end of each sprint, I commit all changes into the client's CVS repository which is auto deployed to the QA environment. By using Git, we can ensure that we still have regular checkins by developers and still control our releases to QA without the code getting auto deployed and possibly breaking that environment. However, I did notice what maybe considered a short coming of Git, depending on your point of view! 
 
-On a Friday evening, I asked each developer to ensure that all code was checked in and pushed to our central Git repository before I committed all changes into the CVS repository. Each developer followed my instructions and, as planned, I committed all changes into the CVS repository! Great, our sprint was released on time and everyone got to go home for the weekend.
+On a Friday evening, I asked each developer to ensure that all code was checked in and pushed to our central Git repository before I pulled and committed all changes into the CVS repository. Each developer followed my instructions and, as planned, I committed all changes into the CVS repository! Great, our sprint was released on time and everyone got to go home for the weekend.
 
 Come Monday morning and I was left a little confused as I noticed not all files made it into the CVS repository! From reviewing the Git log, I could see that all files were committed before my deadline, but not all files were checked into the CVS repository! I must have made a mistake, surely this couldn't be the case!
 
-Only after giving myself a stern talking down to, did I release what happened. While all developers did commit their code to Git before my deadline, not all developers pushed their commits to the central Git repository on time!
+Only after giving myself a stern talking down to, did I realize what happened. While all developers did commit their code to Git before my deadline, not all developers pushed their commits to the central Git repository on time!
 
 When reviewing the Git log, you see the date/time that each commit took place, not when those commits were pushed to the central repository. What would really help here would be if Git kept track of a 'push date', but this is not the case for a good reason. You see, Git is a distributed version control system, what does a 'push date' really mean? What if developer A pushed commits to developer B's repository, who later pushed those same commits to the central repository. Which 'push date' would you be interested in, developer A's or developer B's? In addition, a 'push date' can't be added as part of the commit, as that would change the commit ID due to a different SHA1 hash each time!
 
@@ -17,7 +17,7 @@ From digging around, there appears to be two possible solutions:
 
 1. Attach a note to each Git commit
 
-Git allows notes to be attached to objects, without changing the objects themselves. Notes can be then displayed when using the Git log command. This feature allows for the creation of a Git hook that would add a note to each commit to identify when the push took place. Since hooks are specific to each repository, you could make it so that the note clearly identify which repository the push date is referring to. Not every Git repository would require this hook, maybe just your central one!
+Git allows notes to be attached to objects, without changing the objects themselves. Notes can be then displayed when using the Git log command. This feature allows for the creation of a Git hook that would add a note to each commit to identify when the push took place. Since hooks are specific to each repository, you could make it so that the note clearly identify which repository the push date is referring to. Not every Git repository would require this hook, maybe just your central one.
 
 Creating the hook
 
@@ -65,10 +65,9 @@ NOTE: (pardon the pun) Git ignores upstream notes by default, so developers need
 	# git config --add notes.displayRef "refs/remote-notes/origin/*"
 
 
-<!--
 2. The Git reflog command
--->
 
+It appears to be possible to track a push date on the centeral repository using [reflog](http://stackoverflow.com/a/12704702/318302), I didn't get to try this out, but its soemthing that I would like to follow up on.
 
 Resources
 
