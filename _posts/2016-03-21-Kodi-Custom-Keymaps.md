@@ -25,11 +25,19 @@ monitoring Kodi's log file.
 
     tail -f ~/.kodi/temp/kodi.log
 
+
 For each button that is pressed on the remote, a log entry will be outputted with the matching key code. 
 
+    18:40:18 T:1868559424   DEBUG: CecLogMessage - >> 01:8a:91                                                
+    18:40:18 T:1868559424   DEBUG: CecLogMessage - >> TV (0) -> Recorder 1 (1): vendor remote button down (8A)
+    18:40:18 T:1868559424   DEBUG: CecLogMessage - key pressed: return (Samsung) (91)                         
+    18:40:18 T:1868559424   DEBUG: PushCecKeypress - received key e5 duration 500                             
+    18:40:18 T:1969861152   DEBUG: OnKey: 229 (0xe5) pressed, action is Title                                  
+    18:40:18 T:1969861152   DEBUG: CGUIWindowManager::PreviousWindow: Deactivate               
 
 
-Once the correct key code is found (in my case, 229), it can be added to the keymap XML file as follows
+From the above you can see that key code 229 was pressed, which is currently mapped to Title. However I wish to remap this key to Back using the following
+keymap XML
 
     <?xml version="1.0" encoding="UTF-8"?>
     <keymap>
@@ -38,11 +46,11 @@ Once the correct key code is found (in my case, 229), it can be added to the key
           <red>back</red>
         </remote>
         <keyboard>
-          <!--key id="216">back</key-->
           <key id="229">back</key>
         </keyboard>
       </global>
     </keymap>
 
-You can find more information about keymapping with Kodi as http://kodi.wiki/view/keymap
+
+You can find more information about keymapping on [kodi.wiki](http://kodi.wiki/view/keymap)
 
